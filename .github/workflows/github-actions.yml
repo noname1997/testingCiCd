@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo branch and hash
-        run: 
-          echo "${GITHUB_REF#refs/heads/}"
-          echo "${GITHUB_SHA::8}"
+        run: |
+          echo "branch name: ${GITHUB_REF#refs/heads/}"
+          echo "short hash value: ${GITHUB_SHA::8}"
       - name: echo env
         run: |
           echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."

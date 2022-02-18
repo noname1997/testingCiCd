@@ -5,10 +5,10 @@ jobs:
   create-pull-request:
     runs-on: ubuntu-latest
     steps:
-      - name: set varibiles
+      - name: echo branch and hash
         run: 
-          echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+          echo "${GITHUB_REF#refs/heads/}"
+          echo "${GITHUB_SHA::8}"
       - name: echo env
         run: |
           echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."

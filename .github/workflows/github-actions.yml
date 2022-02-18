@@ -14,35 +14,12 @@ jobs:
           echo "branch name: ${GITHUB_REF#refs/heads/}"
           echo "short hash value: ${GITHUB_SHA::8}"
           echo "release branch will be: [Auto] Release/${GITHUB_REF#refs/heads/}/${GITHUB_SHA::8}"
-#       - name: Check out repository code
-#         uses: actions/checkout@v2
-#       - name: pull-request
-#         uses: repo-sync/pull-request@v2
-#         with:
-#           destination_branch: "develop"
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           pr_title: "[Auto] Release/${GITHUB_REF#refs/heads/}/${GITHUB_SHA::8}"
-# # on:
-#   pull_request:
-#     branches:
-#       -develop
-#     types: [ closed ]
-
-# jobs:
-#   merge_job:
-#   #comment
-#     if: github.event.pull_request.merged == true
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#         ref: main
-#       - name: Reset main branche
-#         run: |
-#           git fetch origin main:main
-#           git reset --hard main
-#       - name: Create Pull Request
-#         uses: noname1997/create-pull-request@v3
-#         with:
-#           branch: main-promotion
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "[Auto] Release/${GITHUB_REF#refs/heads/}/${GITHUB_SHA::8}"
 

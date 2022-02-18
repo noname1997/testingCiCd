@@ -8,15 +8,16 @@ jobs:
       - name: echo test
         run: |
           echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
-        with:
-          destination_branch: "develop"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_label: "feature, automated pr"
-          pr_title: "[Example] Simple demo"
+          echo ::set-output name=pr_title::"[Autp] Release/$(git rev-parse --short HEAD)"
+      # - name: Check out repository code
+      #   uses: actions/checkout@v2
+      # - name: pull-request
+      #   uses: repo-sync/pull-request@v2
+      #   with:
+      #     destination_branch: "develop"
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     pr_label: "feature, automated pr"
+      #     pr_title: "[Example] Simple demo"
 # on:
 #   pull_request:
 #     branches:

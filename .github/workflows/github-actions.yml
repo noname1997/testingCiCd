@@ -1,6 +1,8 @@
 name: github-actions.yml
 on: 
   pull_request:
+    branchs:
+      -develop
     types: [ closed ]
 jobs:
   create-pull-request:

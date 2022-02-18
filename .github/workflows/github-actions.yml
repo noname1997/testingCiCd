@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: set varibiles
         run: 
-          echo ""::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+          echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
           echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: echo env
         run: |

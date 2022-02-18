@@ -8,7 +8,7 @@ jobs:
       - name: echo test
         run: |
           echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          echo ::set-output name=pr_title::"[Autp] Release/$(git rev-parse --short HEAD)"
+          echo ::set-output name=pr_title::"[Autp] Release/${GITHUB_SHA::8}"
       # - name: Check out repository code
       #   uses: actions/checkout@v2
       # - name: pull-request

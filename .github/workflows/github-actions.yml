@@ -16,7 +16,6 @@ jobs:
           destination_branch: "develop"
           pr_label: "feature, automated pr"
           pr_title: "[Example] Simple demo"
-          destination_branch: develop
 # on:
 #   pull_request:
 #     branches:

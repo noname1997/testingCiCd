@@ -7,7 +7,7 @@ on:
 
 jobs:
   merge_job:
-    # this job will only run if the PR has been merged
+  #comment
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:

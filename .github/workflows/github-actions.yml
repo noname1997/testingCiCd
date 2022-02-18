@@ -9,22 +9,16 @@ jobs:
         run: |
           echo "branch name: ${GITHUB_REF#refs/heads/}"
           echo "short hash value: ${GITHUB_SHA::8}"
-      - name: echo env
-        run: |
-          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          echo "[Autp] Release/${GITHUB_REF#refs/heads/}/${GITHUB_SHA::8}"
-          echo "branch is: $BRANCH_NAME"
-          echo "branch is: $SHORT_HASH"
-
-      # - name: Check out repository code
-      #   uses: actions/checkout@v2
-      # - name: pull-request
-      #   uses: repo-sync/pull-request@v2
-      #   with:
-      #     destination_branch: "develop"
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     pr_label: "feature, automated pr"
-      #     pr_title: "[Example] Simple demo"
+          echo "release branch will be: [Auto] Release/${GITHUB_REF#refs/heads/}/${GITHUB_SHA::8}"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "develop"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_label: "feature, automated pr"
+          pr_title: "[Auto] Release/${GITHUB_REF#refs/heads/}/${GITHUB_SHA::8}"
 # on:
 #   pull_request:
 #     branches:

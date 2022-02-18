@@ -8,7 +8,7 @@ jobs:
       - name: echo test
         run: |
           echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          echo "[Autp] Release/${GITHUB_SHA::8}"
+          echo "[Autp] Release/${BRANCH_NAME}/${GITHUB_SHA::8}"
       # - name: Check out repository code
       #   uses: actions/checkout@v2
       # - name: pull-request
